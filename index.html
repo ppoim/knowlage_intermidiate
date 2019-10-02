@@ -3,8 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <title>Knowledge Evaluation</title>
+    <!-- Required styles for MDC Web -->
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <style>
+        html,body{
+            font-family: Roboto, sans-serif;
+        }
+    </style>
 </head>
 <body>
 <h1>Knowledge Evaluation</h1>
+<h2>HTML5: Section elements</h2>
+<h3>When to Use the HTML5 “section” Element</h3>
+<section class="mdc-tab-bar" role="tablist">
+    <div class="mdc-tab-scroller">
+        <div class="mdc-tab-scroller__scroll-area">
+            <div class="mdc-tab-scroller__scroll-content">
+                <button aria-selected="true" class="mdc-tab mdc-tab--active" role="tab" tabindex="0">
+      <span class="mdc-tab__content">
+        <span aria-hidden="true" class="mdc-tab__icon material-icons">favorite</span>
+        <span class="mdc-tab__text-label">Favorites</span>
+      </span>
+                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
+        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+      </span>
+                    <span class="mdc-tab__ripple"></span>
+                </button>
+                <button aria-selected="true" class="mdc-tab mdc-tab--active" role="tab" tabindex="1">
+      <span class="mdc-tab__content">
+        <span aria-hidden="true" class="mdc-tab__icon material-icons">favorite</span>
+        <span class="mdc-tab__text-label">Favorites2</span>
+      </span>
+                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
+        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+      </span>
+                    <span class="mdc-tab__ripple"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<div aria-describedby="my-dialog-content"
+     aria-labelledby="my-dialog-title"
+     aria-modal="true"
+     class="mdc-dialog"
+     role="alertdialog">
+    <div class="mdc-dialog__container">
+        <div class="mdc-dialog__surface">
+            <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+            <h2 class="mdc-dialog__title" id="my-dialog-title"><!--
+     -->Dialog Title<!--
+   --></h2>
+            <div class="mdc-dialog__content" id="my-dialog-content">
+                Dialog body text goes here.
+            </div>
+            <footer class="mdc-dialog__actions">
+                <button class="mdc-button mdc-dialog__button" data-mdc-dialog-action="no" type="button">
+                    <span class="mdc-button__label">No</span>
+                </button>
+                <button class="mdc-button mdc-dialog__button" data-mdc-dialog-action="yes" type="button">
+                    <span class="mdc-button__label">Yes</span>
+                </button>
+            </footer>
+        </div>
+    </div>
+    <div class="mdc-dialog__scrim"></div>
+</div>
+
+<h4>Term and conditions</h4>
+<section><p>lala 1 section</p>
+    <p>lala 1 section</p></section>
+<section><p>lala 2 section</p>
+    <p>lala 2 section</p></section>
+<h4>DO use section to divide the different sections of a one-page website or portfolio</h4>
+<section>first
+    <button>button check</button>
+</section>
+<section>second button
+    <button class="mdc-button mdc-button-dialog--open">
+        <span class="mdc-button__label">Open dialog</span>
+    </button>
+</section>
+
+<ol>
+    <li>DON’T use section to divide content from the header and footer; use div instead (see the doctor)</li>
+    <li>DON’T use section to wrap a tab switcher for DOM manipulation or styling</li>
+    <li>DON’T use section for sidebar or other tangentially-related content boxes; use aside instead</li>
+    <li>DON’T use section just to add a border or drop shadow around something; use div instead</li>
+    <li>DON’T use section for the wrapper when implementing faux columns; again, use div instead</li>
+    <li>DON’T use section to nest elements when trying to avoid IE6’s float double-margin bug (or a similar
+        layout-related issue); again, use div
+    </li>
+    <li>DON’T use section to hold an individual author bio on a blog post or news article; use aside instead</li>
+</ol>
+<script>
+    const MDCDialog = mdc.dialog.MDCDialog;
+    const dialog = new MDCDialog(document.querySelector('.mdc-dialog'));
+    document.querySelector('.mdc-button-dialog--open').addEventListener('click', () => {
+        dialog.open();
+    })
+</script>
+
+<h3>Grouping elements</h3>
+<h4>P</h4>
+<p>The little kitten gently seated himself on a piece of
+    carpet. Later in his life, this would be referred to as the time the
+    cat sat on the mat.</p>
+<fieldset>
+    <legend>Personal information</legend>
+    <p>
+        <label>Name: <input name="n"></label>
+        <label><input name="anon" type="checkbox"> Hide from other users</label>
+    </p>
+    <p><label>Address: <textarea name="a"></textarea></label></p>
+</fieldset>
+<p>There was once an example from Femley,<br>
+    Whose markup was of dubious quality.<br>
+    The validator complained,<br>
+    So the author was pained,<br>
+    To move the error from the markup to the rhyming.</p>
+
+
+<section>
+    <p>last modified </p>
+    <p>author:fred</p>
+</section>
+should be
+<section>
+    <footer>last modif</footer>
+    <address>autohor fre@mail.co</address>
+</section>
+or
+<section>
+    <footer>
+        <p>last modif</p>
+        <address>autchor fred@emacom</address>
+    </footer>
+</section>
+<h4>hr</h4>
+The hr element represents a paragraph-level thematic break, e.g. a scene change in a story, or a transition to another topic within a section of a reference book.
+<section>
+    <p>some text paregmaph</p>
+    <hr>
+    <p>second paragraph</p>
+    <ul>
+        <li>list1</li>
+        <li>list2</li>
+    </ul>
+    <hr>
+    <p>other paragraph</p>
+    <hr>
+    <p>last paragraphs</p>
+</section>
+<section>
+    <h1>Food</h1>
+    <p>All food at the project is rationed:</p>
+    <dl>
+        <dt>Potatoes</dt>
+        <dd>Two per day </dd>
+        <dt>Soup</dt>
+        <dd>one bowl per day</dd>
+    </dl>
+    <hr>
+    <p>cookin is done by the chef on s set rotation</p>
+</section>
+
+<h4>pre</h4>
+<p>This is the <code>Panel</code> constructor:</p>
+<pre><code>function Panel(element, canClose, closeHandler) {
+  this.element = element;
+  this.canClose = canClose;
+  this.closeHandler = function () { if (closeHandler) closeHandler() };
+}</code></pre>
+
 </body>
 </html>
